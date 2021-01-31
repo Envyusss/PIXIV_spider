@@ -12,13 +12,13 @@ if __name__ == '__main__':
     file = open('following_author_id.txt',encoding='utf-8')
     while True:
         author_id = file.readline().replace('\n','')
-        author_img_dic = get_author_img_dic(author_id,'783461007@qq.com','zzc991031')
+        author_img_dic = get_author_img_dic(author_id,'username','password')
         illusts_list = get_author_illusts(author_img_dic)
         for img_id in illusts_list:
             try:
-                img_dic = get_img_dic(img_id,'783461007@qq.com','zzc991031')
+                img_dic = get_img_dic(img_id,'username','password')
                 authorName=img_dic['authorName'].replace('/','').replace("\\",'')
-                address = 'C:/Users/78346/Desktop/blog_image/' + authorName
+                address = 'your path' + authorName
             except:
                 print("login Error"+img_dic['illustID'])
             else:

@@ -6,12 +6,12 @@ from fuction import set_leaderboard,load_leaderboard,\
 
 if __name__ == '__main__':
     set = set_leaderboard('插画', '今日', False, '20190729') #设置起始页
-    response_list = load_leaderboard('783461007@qq.com', 'zzc991031', set)
+    response_list = load_leaderboard('username', 'password', set)
     id_list = get_author_id(response_list)
     page = 1
     while page <= 1:  #获得（）天的数据，获得几天就填几，如果填2就是今天与昨天
         set = leaderboard_turn_next_page(set) #前一天，也可以改成后一天，不过起始页就得改了
-        response_list = load_leaderboard('783461007@qq.com', 'zzc991031', set)
+        response_list = load_leaderboard('username', 'password', set)
         id_list = id_list + get_author_id(response_list)
         id_list = list({}.fromkeys(id_list).keys()) #列表去重，合并一次去一次重
         page = page + 1
